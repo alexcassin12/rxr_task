@@ -1,0 +1,25 @@
+{
+  "name": "roxor-assessment",
+  "version": "1.0.0",
+  "description": "Colour Guessing Game",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel ./root/public/game/index.html",
+    "build": "parcel build ./root/public/game/index.html --dist-dir ./dist"
+  },
+  "author": "Alex Cassin",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.6.2",
+    "@parcel/transformer-webmanifest": "^2.6.2",
+    "parcel": "^2.6.2"
+  },
+  "dependencies": {
+    "core-js": "^3.23.5",
+    "git": "^0.1.5",
+    "parcel": "^2.8.2",
+    "pixi": "^0.3.1",
+    "regenerator-runtime": "^0.13.9",
+    "typescript": "^4.9.4"
+  }
+}
