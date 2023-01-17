@@ -1,5 +1,3 @@
-import PixiShader from "pixi/renderers/webgl/PixiShader";
-
 class View {
   _textStyle = new PIXI.TextStyle({
     fontFamily: "Arial",
@@ -80,8 +78,8 @@ class View {
     return scoreTextHeading;
   }
 
-  createScoreText(app_, textField_) {
-    const scoreText = new PIXI.Text("1", this._textStyle);
+  createScoreText(app_, textField_, playerScore_) {
+    const scoreText = new PIXI.Text(playerScore_.toString(), this._textStyle);
     textField_.addChild(scoreText);
     scoreText.x = app_.view.width / 2 - 10;
     scoreText.y = 190;
@@ -109,6 +107,7 @@ class View {
     app_.stage.addChild(redCircle);
     redCircle.buttonMode = true;
 
+    redCircle.colourName = "red";
     return redCircle;
   }
 
@@ -121,6 +120,7 @@ class View {
     app_.stage.addChild(blueCircle);
     blueCircle.buttonMode = true;
 
+    blueCircle.colourName = "blue";
     return blueCircle;
   }
 
@@ -133,6 +133,7 @@ class View {
     app_.stage.addChild(greenCircle);
     greenCircle.buttonMode = true;
 
+    greenCircle.colourName = "green";
     return greenCircle;
   }
 
@@ -145,6 +146,7 @@ class View {
     app_.stage.addChild(yellowCircle);
     yellowCircle.buttonMode = true;
 
+    yellowCircle.colourName = "yellow";
     return yellowCircle;
   }
 
@@ -157,7 +159,40 @@ class View {
     app_.stage.addChild(orangeCircle);
     orangeCircle.buttonMode = true;
 
+    orangeCircle.colourName = "orange";
     return orangeCircle;
+  }
+
+  addButtonHandlers(buttonsArr_, handler_) {
+    buttonsArr_.forEach((b) => {
+      b.interactive = true;
+      b.on("pointerdown", () => handler_(b));
+    });
+  }
+
+  highlightSelection(btn_) {
+    console.log("highlighted");
+  }
+
+  async cycleColours(app_, colourCircle_, responsesArr) {
+    const colours = responsesArr.map((r) => r.colourHex);
+    // Set colour of circle background to colours[0]
+    // wait 0.2 secs
+    // Set to next colour[1]
+
+    // Keep going for set amount of time
+  }
+
+  setResColour(app_, hexColour) {
+    // Set colour of circle to hex colour
+  }
+
+  updateScore(scoreText_, newScore_) {
+    // Update score from backend
+  }
+
+  resetTime() {
+    // reset time display back to 20 secs
   }
 }
 
