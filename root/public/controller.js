@@ -79,8 +79,8 @@ class Game {
     // Guard clause in case selections should not be active
     if (this._btnsBlock) return;
 
-    isFirstSpin && this.countdownStart();
-    this.isFirstSpin = false;
+    this._isFirstSpin && this.countdownStart();
+    this._isFirstSpin = false;
 
     //Highligh selected button
     view.highlightSelection(btnClicked_);
